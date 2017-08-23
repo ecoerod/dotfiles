@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: JSX support for JS files
+# key: jsx
+# --
+/** @jsx React.DOM */

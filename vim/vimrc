@@ -1,0 +1,89 @@
+"" Syntax settings
+syntax on
+filetype on
+filetype indent on
+
+"" Misc
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smartindent
+set autoindent
+set modelines=1
+set shellslash  "universal path separator, needed for Windows
+autocmd GUIEnter * set vb t_vb=
+set enc=utf-8
+set fileencoding=utf-8
+set clipboard=unnamedplus
+
+"" GUI settings
+set guifont=Hack:h11.5
+set lines=50 columns=95
+set colorcolumn=90
+set number
+set cursorline  
+set wildmenu    "autocomplete menu for files
+set showmatch   "show matching pairs
+set go=aegiMLt
+
+"" Searching settings
+set incsearch
+set hlsearch
+nnoremap <leader>nh :nohlsearch<CR> "turn off search
+
+"" Folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+nnoremap <space> za
+
+"" Better movement
+nnoremap j gj
+nnoremap k gk
+nnoremap B ^
+nnoremap E $
+nnoremap $ <nop>
+nnoremap ^ <nop>
+nnoremap gV `[v`]
+
+"" Backspace behaviour
+set backspace=indent,eol,start
+
+"" Leader mappings
+let mapleader=','
+map <leader>ss :source ~/.vimrc<CR>
+map <leader>bd :bd<CR>
+inoremap jk <esc>
+
+"" Packages
+call plug#begin('~/vimfiles/plugins')
+
+Plug 'chriskempson/base16-vim'
+
+Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'w0rp/ale'
+
+call plug#end()
+
+let base16colorspace=256
+colorscheme base16-tomorrow-night
+
+"" Airline
+set laststatus=2
+set noshowmode
+let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"" Ale
+let g:ale_sign_error="✖"
+let g:ale_sign_warning="➤"
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
