@@ -28,4 +28,4 @@ git:
 	ln -s $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
 
 _common-shell:
-	git clone $(BASE16) ~/.config/base16-shell
+	git clone $(BASE16) $(HOME)/.config/base16-shell
