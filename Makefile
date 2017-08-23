@@ -1,6 +1,7 @@
 DOTFILES := $(shell pwd)
 VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
+BASE16 := https://github.com/chriskempson/base16-shell.git
 .PHONY: emacs vim fish bash git
 
 
@@ -16,12 +17,15 @@ vim:
 	ln -fs $(DOTFILES)/vim/vimrc $(HOME)/.vimrc
 	curl -fLo $(HOME)/.vim/autoload/plug.vim --create-dirs $(VIMPLUG)
 
-fish:
+fish: _common-shell
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
 	ln -fs $(DOTFILES)/fish/functions/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
 
-bash:
+bash: _common-shell
 	ln -fs $(DOTFILES)/bash/bashrc $(HOME)/.bashrc
 
 git:
 	ln -s $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
+
+_common-shell:
+	git clone $(BASE16) ~/.config/base16-shell
