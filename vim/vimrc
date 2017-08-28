@@ -1,3 +1,8 @@
+"" Windows sucks
+if has('win32') || has('win64')
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+
 "" Syntax settings
 syntax on
 filetype on
@@ -21,7 +26,7 @@ set guifont=Hack:h11.5
 set lines=50 columns=95
 set colorcolumn=90
 set number
-set cursorline  
+set cursorline 
 set wildmenu    "autocomplete menu for files
 set showmatch   "show matching pairs
 set go=aegiMLt
@@ -57,7 +62,7 @@ map <leader>bd :bd<CR>
 inoremap jk <esc>
 
 "" Packages
-call plug#begin('~/vimfiles/plugins')
+call plug#begin('~/.vim/plugins')
 
 Plug 'chriskempson/base16-vim'
 
