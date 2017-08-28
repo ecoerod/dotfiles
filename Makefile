@@ -25,7 +25,7 @@ bash: _common-shell
 	ln -fs $(DOTFILES)/bash/bashrc $(HOME)/.bashrc
 
 git:
-	ln -s $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
+	ln -fs $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
 
 _common-shell:
 	git clone $(BASE16) $(HOME)/.config/base16-shell
