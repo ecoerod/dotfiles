@@ -356,7 +356,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq initial-buffer-choice '(lambda () (get-buffer spacemacs-buffer-name)))
   (setq-default python-fill-column 91)
   (add-to-list 'exec-path "~/.node_modules/bin" t)
-  (add-to-list 'exec-path "~/AppData/Local/Programs/stack/x86_64-windows/ghc-8.0.1/bin")
+  (when (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "~/AppData/Local/Programs/stack/x86_64-windows/ghc-8.0.1/bin"))
   ;; (if (and (eq system-type 'windows-nt) (string= (system-name) "BOLTZMANN"))
   ;;     (setq default-directory "d:/Dropbox/Proyectos")
   ;;   (setq default-directory "/mnt/Datos/Dropbox/Proyectos"))
@@ -417,7 +418,6 @@ you should place your code here."
     (process-send-string (intero-process 'backend) ":set -fforce-recomp\n"))
   (with-eval-after-load 'intero
     (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
-
 
   (setq-default buffer-file-coding-system 'utf-8-unix)
   (editorconfig-mode 1)
