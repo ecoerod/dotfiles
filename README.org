@@ -1,0 +1,8 @@
+* Nelthorim's Dotfiles
+  This is a personal repository intended to store my current Linux (and Windows,
+  believe it or not!) configurations. You can use them as reference, or use them
+  as is if they suit you that well.
+** Installation
+   Use the Makefile recipes as wanted. By default, ~make all~ will install the
+   recipes for fish, emacs and git, with vim and bash left as optionals as they
+   are not part of my current workflow.
