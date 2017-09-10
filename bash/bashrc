@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # bash prompt
-PS1='[\u@\h \W]\$ '
+export PS1="\[\e[1;34m\]\u\[\e[m\]\[\e[1;33m\]@\[\e[m\]\[\e[1;31m\]\h\[\e[m\] \[\e[1;32m\]\w\[\e[m\] 	\nλ "
 
 # CFLAGS
 export CFLAGS="-O2"
