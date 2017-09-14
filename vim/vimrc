@@ -73,6 +73,8 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'w0rp/ale'
 
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 let base16colorspace=256
@@ -92,3 +94,7 @@ let g:ale_sign_warning="➤"
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
+"" Emmet
+let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_install_global=0
+autocmd FileType html,css EmmetInstall
