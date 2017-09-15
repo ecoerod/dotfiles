@@ -22,7 +22,11 @@ set fileencoding=utf-8
 set clipboard=unnamedplus
 
 "" GUI settings
-set guifont=Hack:h11.5
+if has('win32') || has('win64')
+    set guifont=Hack:h11.5
+else
+    set guifont=Hack\ 11
+endif
 set lines=50 columns=95
 set colorcolumn=90
 set number
