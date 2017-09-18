@@ -395,6 +395,12 @@ you should place your code here."
 
   ;; Org-mode configs
   (setq org-pomodoro-long-break-length 30)
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-listings 'minted)
+  (setq org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
   ;; Web-mode and js2-mode configs
   (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
