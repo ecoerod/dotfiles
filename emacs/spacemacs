@@ -395,6 +395,8 @@ you should place your code here."
 
   ;; Org-mode configs
   (setq org-pomodoro-long-break-length 30)
+  (with-eval-after-load 'org
+    (add-hook 'org-mode-hook #'visual-line-mode))
   (with-eval-after-load 'ox-latex
     (add-to-list 'org-latex-packages-alist '("" "minted"))
     (setq org-latex-listings 'minted)
