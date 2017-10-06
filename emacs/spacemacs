@@ -372,7 +372,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; Basic configs
   (editorconfig-mode 1)
-  (spacemacs/toggle-fringe-off)
+  (spacemacs/toggle-vi-tilde-fringe-off)
   (global-prettify-symbols-mode 1)
   (global-company-mode 1)
   (setq-default tab-width 4)
