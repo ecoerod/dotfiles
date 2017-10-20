@@ -2,10 +2,10 @@ DOTFILES := $(shell pwd)
 VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
-.PHONY: emacs vim fish bash git
+.PHONY: emacs vim fish bash git fonts
 
 
-all: emacs fish git
+all: emacs fish git fonts
 
 emacs:
 	ln -fs $(DOTFILES)/emacs/spacemacs $(HOME)/.spacemacs
@@ -26,6 +26,11 @@ bash: _common-shell
 
 git:
 	ln -fs $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
+
+fonts:
+	mkdir -p $(HOME)/.config/fontconfig
+	ln -fs $(DOTFILES)/fonts/fonts.conf $(HOME)/.config/fontconfig/fonts.conf
+	ln -fs $(DOTFILES)/fonts/.Xresources $(HOME)/.Xresources
 
 _common-shell:
 	git clone $(BASE16) $(HOME)/.config/base16-shell
