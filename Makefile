@@ -25,9 +25,9 @@ emacs:
 	ln -fs $(DOTFILES)/emacs/snippets $(HOME)/.emacs.d/private
 
 clean-emacs:
-	rm $(HOME)/.spacemacs
-	rm $(HOME)/.emacs.d/private/snippets
-	rm -r $(HOME)/.emacs.d
+	-rm $(HOME)/.spacemacs
+	-rm $(HOME)/.emacs.d/private/snippets
+	-rm -r $(HOME)/.emacs.d
 
 ########################################################
 ## Vim recipes
@@ -37,8 +37,8 @@ vim:
 	curl -fLo $(HOME)/.vim/autoload/plug.vim --create-dirs $(VIMPLUG)
 
 clean-vim:
-	rm $(HOME)/.vimrc
-	rm -r $(HOME)/.vim
+	-rm $(HOME)/.vimrc
+	-rm -r $(HOME)/.vim
 
 ########################################################
 ## Fish recipes
@@ -48,8 +48,8 @@ fish: _common-shell
 	ln -fs $(DOTFILES)/fish/functions/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
 
 clean-fish: _clean-shell
-	rm $(HOME)/.config/fish/config.fish
-	rm $(HOME)/.config/fish/functions/fish_prompt.fish
+	-rm $(HOME)/.config/fish/config.fish
+	-rm $(HOME)/.config/fish/functions/fish_prompt.fish
 
 ########################################################
 ## Bash recipes
@@ -59,7 +59,7 @@ bash: _common-shell
 	ln -fs $(DOTFILES)/bash/bashrc $(HOME)/.bashrc
 
 clean-bash: _clean-shell
-	rm $(HOME)/.bashrc
+	-rm $(HOME)/.bashrc
 	-mv $(HOME)/.bashrc.bak $(HOME)/.bashrc
 
 ########################################################
@@ -69,7 +69,7 @@ git:
 	ln -fs $(DOTFILES)/git/gitconfig $(HOME)/.gitconfig
 
 clean-git:
-	rm $(HOME)/.gitconfig
+	-rm $(HOME)/.gitconfig
 
 ########################################################
 ## Fonts recipes
@@ -80,10 +80,14 @@ fonts:
 	ln -fs $(DOTFILES)/fonts/.Xresources $(HOME)/.Xresources
 
 clean-fonts:
-	rm $(HOME)/.config/fonts.conf
-	rm $(HOME)/.Xresources
+	-rm $(HOME)/.config/fonts.conf
+	-rm $(HOME)/.Xresources
 
 #########################################################
 ## Not directly used recipes
+
 _common-shell:
 	git clone $(BASE16) $(HOME)/.config/base16-shell
+
+_clean-shell:
+	-rm -r $(HOME)/.config/base16-shell
