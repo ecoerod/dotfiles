@@ -6,7 +6,7 @@ DOTFILES := $(shell pwd)
 VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
-.PHONY: emacs vim fish bash git fonts
+.PHONY: emacs vim fish bash git fonts pacaur
 
 
 ########################################################
@@ -82,6 +82,17 @@ fonts:
 clean-fonts:
 	-rm $(HOME)/.config/fonts.conf
 	-rm $(HOME)/.Xresources
+
+#########################################################
+## Pacaur recipes
+
+pacaur:
+	mkdir -p $(HOME)/.config/pacaur
+	ln -fs $(DOTFILES)/pacaur/config $(HOME)/.config/pacaur/config
+
+
+clean-pacaur:
+	-rm $(HOME)/.config/pacaur/config
 
 #########################################################
 ## Not directly used recipes
