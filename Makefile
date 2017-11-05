@@ -23,8 +23,12 @@ emacs:
 	git clone $(SPACEMACS) $(HOME)/.emacs.d/ --branch develop
 	rm -rf $(HOME)/.emacs.d/private/snippets
 	ln -fs $(DOTFILES)/emacs/snippets $(HOME)/.emacs.d/private
+	mkdir -p $(HOME)/.config/systemd/user
+	ln -fs $(DOTFILES)/emacs/emacs.service $(HOME)/.config/systemd/user/emacs.service
+	systemctl --user enable emacs.service
 
 clean-emacs:
+	systemctl --user disable --now emacs.service
 	-rm $(HOME)/.spacemacs
 	-rm $(HOME)/.emacs.d/private/snippets
 	-rm -r $(HOME)/.emacs.d
