@@ -1,7 +1,7 @@
 # Colors
-set yellow (set_color yellow)
-set blue (set_color blue)
-set red (set_color red)
+set yellow (set_color -o yellow) 
+set blue (set_color -o blue)
+set red (set_color -o red)
 
 
 # Fish git prompt
@@ -26,22 +26,22 @@ function fish_prompt
     set last_status $status
     
     if [ $SSH_CONNECTION ]
-        set_color yellow
+        yellow
         printf 'SSH '
         set_color normal
     end
 
-    set_color blue
+    set_color -o blue
     printf '%s' (whoami)
-    set_color yellow
+    set_color -o yellow
     printf '@'
 
-    set_color red
+    set_color -o red
     printf '%s' (hostname|cut -d . -f 1)
     set_color normal
     printf ' '
 
-    set_color $fish_color_cwd
+    set_color -o $fish_color_cwd
     printf '%s' (prompt_pwd)
     set_color normal
 
