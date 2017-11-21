@@ -387,6 +387,7 @@ you should place your code here."
   ;; Basic configs
   (editorconfig-mode 1)
   (spacemacs/toggle-vi-tilde-fringe-off)
+  (spacemacs/toggle-fill-column-indicator-on)
   (global-prettify-symbols-mode 1)
   (global-company-mode 1)
   (setq-default tab-width 4)
