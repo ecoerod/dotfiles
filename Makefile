@@ -12,8 +12,8 @@ BASE16 := https://github.com/chriskempson/base16-shell.git
 ########################################################
 ## Main recipes
 
-all: emacs fish git fonts
-clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash
+all: emacs vim fish bash git fonts pacaur
+clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash clean-pacaur
 
 ########################################################
 ## Emacs recipes
@@ -28,7 +28,7 @@ emacs:
 	systemctl --user enable emacs.service
 
 clean-emacs:
-	systemctl --user disable --now emacs.service
+	-systemctl --user disable --now emacs.service
 	-rm $(HOME)/.spacemacs
 	-rm $(HOME)/.emacs.d/private/snippets
 	-rm -r $(HOME)/.emacs.d
@@ -48,6 +48,7 @@ clean-vim:
 ## Fish recipes
 
 fish: _common-shell
+	mkdir -p $(HOME)/fish/functions
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
 	ln -fs $(DOTFILES)/fish/functions/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
 
