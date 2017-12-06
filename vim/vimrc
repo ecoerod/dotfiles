@@ -27,7 +27,7 @@ if has('win32') || has('win64')
 else
     set guifont=Hack\ 11
 endif
-set lines=50 columns=95
+"" set lines=50 columns=95
 set colorcolumn=90
 set number
 set cursorline 
