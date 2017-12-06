@@ -3,7 +3,7 @@ set -g -x CFLAGS "-O2"
 set -g -x MAKEFLAGS "-j"
 set -g -x BROWSER chromium
 set -g -x EDITOR emacsclient -t
-set -g -x VISUAL emacsclient -t -a emacs
+set -g -x VISUAL emacsclient -c -a emacs
 set -g -x fish_greeting ""
 set -g -x PATH $PATH /home/nelthorim/.local/bin/
 
