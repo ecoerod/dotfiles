@@ -85,7 +85,7 @@ fonts:
 	ln -fs $(DOTFILES)/fonts/.Xresources $(HOME)/.Xresources
 
 clean-fonts:
-	-rm $(HOME)/.config/fonts.conf
+	-rm $(HOME)/.config/fontconfig/fonts.conf
 	-rm $(HOME)/.Xresources
 
 #########################################################
