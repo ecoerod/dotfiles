@@ -80,12 +80,9 @@ clean-git:
 ## Fonts recipes
 
 fonts:
-	mkdir -p $(HOME)/.config/fontconfig
-	ln -fs $(DOTFILES)/fonts/fonts.conf $(HOME)/.config/fontconfig/fonts.conf
 	ln -fs $(DOTFILES)/fonts/.Xresources $(HOME)/.Xresources
 
 clean-fonts:
-	-rm $(HOME)/.config/fontconfig/fonts.conf
 	-rm $(HOME)/.Xresources
 
 #########################################################
