@@ -1,2 +1,28 @@
-#+OPTIONS: :toc nil :date nil
-#+LATEX_HEADER: \input{preamble.tex}
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper,10pt]
+#+OPTIONS: toc:nil date:nil
+
+#+LATEX_HEADER: \usepackage{garamondx}
+#+LATEX_HEADER: \usepackage{inconsolata}
+#+LATEX_HEADER: 
+#+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot]{geometry}
+#+LATEX_HEADER: 
+#+LATEX_HEADER: \usepackage{lastpage}
+#+LATEX_HEADER: \usepackage{titling}
+#+LATEX_HEADER: \usepackage{verbatim}
+#+LATEX_HEADER: \usepackage[cmyk]{xcolor}
+#+LATEX_HEADER: 
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancyplain}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \renewcommand{\plainheadrulewidth}{0.4pt}
+#+LATEX_HEADER: \renewcommand{\plainfootrulewidth}{0.4pt}
+#+LATEX_HEADER: \renewcommand{\headrulewidth}{0.4pt}
+#+LATEX_HEADER: \renewcommand{\footrulewidth}{0.4pt}
+#+LATEX_HEADER: \fancyhead[r]{\thetitle}
+#+LATEX_HEADER: \fancyfoot[l]{Pág \thepage\ de \pageref{LastPage}}
+#+LATEX_HEADER: \fancyfoot[r]{\theauthor}
+#+LATEX_HEADER: 
+#+LATEX_HEADER: \usepackage[tikz]{mdframed}
+#+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\begin{mdframed}}
+#+LATEX_HEADER: \AfterEndEnvironment{minted}{\end{mdframed}}
