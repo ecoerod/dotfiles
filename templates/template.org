@@ -1,0 +1,2 @@
+#+OPTIONS: :toc nil :date nil
+#+LATEX_HEADER: \input{preamble.tex}

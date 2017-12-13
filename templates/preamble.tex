@@ -1,0 +1,26 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage{garamondx}
+\usepackage{inconsolata}
+
+\usepackage[margin=1in,includeheadfoot]{geometry}
+
+\usepackage{lastpage}
+\usepackage{titling}
+\usepackage{verbatim}
+\usepackage[cmyk]{xcolor}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\plainheadrulewidth}{0.4pt}
+\renewcommand{\plainfootrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[r]{\thetitle}
+\fancyfoot[l]{Pág \thepage\ de \pageref{LastPage}}
+\fancyfoot[r]{\theauthor}
+
+\usepackage[tikz]{mdframed}
+\BeforeBeginEnvironment{minted}{\begin{mdframed}}
+\AfterEndEnvironment{minted}{\end{mdframed}}
