@@ -6,14 +6,14 @@ DOTFILES := $(shell pwd)
 VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
-.PHONY: emacs vim fish bash git fonts pacaur
+.PHONY: emacs vim fish bash git fonts pacaur tmux
 
 
 ########################################################
 ## Main recipes
 
-all: emacs vim fish bash git fonts pacaur
-clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash clean-pacaur
+all: emacs vim fish bash git fonts pacaur tmux
+clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash clean-pacaur clean-tmux
 
 ########################################################
 ## Emacs recipes
@@ -95,6 +95,15 @@ pacaur:
 
 clean-pacaur:
 	-rm $(HOME)/.config/pacaur/config
+
+#########################################################
+## Tmux recipes
+
+tmux:
+	ln -fs $(DOTFILES)/tmux/tmux.conf $(HOME)/.tmux.conf
+
+clean-tmux:
+	-rm $(HOME)/.tmux.conf
 
 #########################################################
 ## Not directly used recipes
