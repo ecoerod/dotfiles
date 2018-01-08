@@ -1,17 +1,43 @@
 #+LATEX_CLASS: article
-#+LATEX_CLASS_OPTIONS: [a4paper,10pt]
+#+LATEX_CLASS_OPTIONS: [a4paper,11pt,hidelinks]
 #+OPTIONS: toc:nil date:nil
 
+#+LATEX_HEADER: \usepackage{parskip}
+#+LATEX_HEADER: \usepackage[rm,bf]{titlesec}
+#+LATEX_HEADER: \titlespacing*{\section}      {0em}{.75em}{.5em}
+#+LATEX_HEADER: \titlespacing*{\subsection}   {0em}{.50em}{.25em}
+#+LATEX_HEADER: \titlespacing*{\subsubsection}{0em}{.50em}{.25em}
+#+LATEX_HEADER: \titlespacing*{\paragraph}    {0em}{.25em}{.25em}
+
+#+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
+#+LATEX_HEADER: \renewcommand{\figurename}{Figura}
+#+LATEX_HEADER: \renewcommand{\familydefault}{\sfdefault}
+
+#+LATEX_HEADER: \usepackage{paratype}
 #+LATEX_HEADER: \usepackage{garamondx}
 #+LATEX_HEADER: \usepackage{inconsolata}
-#+LATEX_HEADER: 
+
 #+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot]{geometry}
-#+LATEX_HEADER: 
+
 #+LATEX_HEADER: \usepackage{lastpage}
-#+LATEX_HEADER: \usepackage{titling}
 #+LATEX_HEADER: \usepackage{verbatim}
 #+LATEX_HEADER: \usepackage[cmyk]{xcolor}
-#+LATEX_HEADER: 
+#+LATEX_HEADER: \usepackage[section]{placeins}
+#+LATEX_HEADER: \let\Oldsection\section
+#+LATEX_HEADER: \renewcommand{\section}{\FloatBarrier\Oldsection}
+#+LATEX_HEADER: \let\Oldsubsection\subsection
+#+LATEX_HEADER: \renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+#+LATEX_HEADER: \let\Oldsubsubsection\subsubsection
+#+LATEX_HEADER: \renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
+#+LATEX_HEADER: \usepackage{titling}
+#+LATEX_HEADER: \posttitle{\par\end{center}\vskip -1em}
+#+LATEX_HEADER: \setlength{\droptitle}{-3em}
+#+LATEX_HEADER: \renewcommand{\maketitlehooka}{\textrm}
+#+LATEX_HEADER: \renewcommand{\maketitlehookb}{\textrm}
+#+LATEX_HEADER: \let\oldtitle\title
+#+LATEX_HEADER: \renewcommand{\title}[1]{\oldtitle{#1}\newcommand{\mythetitle}{#1}}
+
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \pagestyle{fancyplain}
 #+LATEX_HEADER: \fancyhf{}
@@ -19,10 +45,11 @@
 #+LATEX_HEADER: \renewcommand{\plainfootrulewidth}{0.4pt}
 #+LATEX_HEADER: \renewcommand{\headrulewidth}{0.4pt}
 #+LATEX_HEADER: \renewcommand{\footrulewidth}{0.4pt}
-#+LATEX_HEADER: \fancyhead[r]{\thetitle}
+#+LATEX_HEADER: \fancyhead[r]{\mythetitle}
 #+LATEX_HEADER: \fancyfoot[l]{Pág \thepage\ de \pageref{LastPage}}
 #+LATEX_HEADER: \fancyfoot[r]{\theauthor}
-#+LATEX_HEADER: 
+
 #+LATEX_HEADER: \usepackage[tikz]{mdframed}
 #+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\begin{mdframed}}
 #+LATEX_HEADER: \AfterEndEnvironment{minted}{\end{mdframed}}
+
