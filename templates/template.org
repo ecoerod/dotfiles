@@ -16,7 +16,8 @@
 #+LATEX_HEADER: \usepackage{paratype}
 #+LATEX_HEADER: \usepackage{garamondx}
 #+LATEX_HEADER: \usepackage{inconsolata}
-
+#+LATEX_HEADER: \usepackage[cm]{sfmath}
+    
 #+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot]{geometry}
 
 #+LATEX_HEADER: \usepackage{lastpage}
