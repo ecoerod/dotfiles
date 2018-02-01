@@ -6,14 +6,15 @@ DOTFILES := $(shell pwd)
 VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
-.PHONY: emacs vim fish bash git fonts pacaur tmux
+TPM := https://github.com/tmux-plugins/tpm
+.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty
 
 
 ########################################################
 ## Main recipes
 
-all: emacs vim fish bash git fonts pacaur tmux
-clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash clean-pacaur clean-tmux
+all: emacs vim fish bash git fonts pacaur tmux alacritty
+clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash clean-pacaur clean-tmux clean-alacritty
 
 ########################################################
 ## Emacs recipes
@@ -101,9 +102,22 @@ clean-pacaur:
 
 tmux:
 	ln -fs $(DOTFILES)/tmux/tmux.conf $(HOME)/.tmux.conf
+	git clone $(TPM) $(HOME)/.tmux/plugins/tpm
 
 clean-tmux:
 	-rm $(HOME)/.tmux.conf
+	-rm -r $(HOME)/.tmux/
+
+#########################################################
+## Alacritty recipes
+
+alacritty:
+	-mv $(HOME)/.config/alacritty/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml.bak
+	ln -fs $(DOTFILES)/alacritty/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
+
+clean-alacritty:
+	-rm $(HOME)/.config/alacritty/alacritty.yml
+	-mv $(HOME)/.config/alacritty/alacritty.yml.bak $(HOME)/.config/alacritty/alacritty.yml
 
 #########################################################
 ## Not directly used recipes
