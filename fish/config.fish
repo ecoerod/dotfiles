@@ -12,7 +12,8 @@ alias emacs  "emacsclient -t"
 alias emacsw "emacsclient -c -a emacs"
 
 # pyenv settings
-set PYTHONPATH $PYTHONPATH $HOME/.python
+set -g -x PYENV_ROOT $HOME/.pyenv
+set -g -x PATH $PYENV_ROOT/bin $PATH
 status --is-interactive; and . (pyenv init - | psub)
 
 if test -n "$EMACS"
