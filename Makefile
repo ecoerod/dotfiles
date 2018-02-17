@@ -49,7 +49,7 @@ clean-vim:
 ## Fish recipes
 
 fish: _common-shell
-	mkdir -p $(HOME)/fish/functions
+	mkdir -p $(HOME)/.config/fish/functions
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
 	ln -fs $(DOTFILES)/fish/functions/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
 
@@ -112,6 +112,7 @@ clean-tmux:
 ## Alacritty recipes
 
 alacritty:
+	mkdir -p $(HOME)/.config/alacritty
 	-mv $(HOME)/.config/alacritty/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml.bak
 	ln -fs $(DOTFILES)/alacritty/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
 
