@@ -46,6 +46,16 @@ clean-vim:
 	-rm -r $(HOME)/.vim
 
 ########################################################
+## Pandoc recipes
+
+pandoc:
+	mkdir -p $(HOME)/.pandoc/templates
+	ln -fs $(DOTFILES)/.pandoc/template.tex $(HOME)/.pandoc/templates/default.tex
+
+clean-pandoc:
+	-rm -r $(HOME)/.pandoc
+
+########################################################
 ## Fish recipes
 
 fish: _common-shell
