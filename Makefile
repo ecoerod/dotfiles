@@ -7,7 +7,7 @@ VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
-.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty
+.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc
 
 
 ########################################################
@@ -32,7 +32,7 @@ clean-emacs:
 	-systemctl --user disable --now emacs.service
 	-rm $(HOME)/.spacemacs
 	-rm $(HOME)/.emacs.d/private/snippets
-	-rm -r $(HOME)/.emacs.d
+	-rm -rf $(HOME)/.emacs.d
 
 ########################################################
 ## Vim recipes
@@ -50,7 +50,7 @@ clean-vim:
 
 pandoc:
 	mkdir -p $(HOME)/.pandoc/templates
-	ln -fs $(DOTFILES)/.pandoc/template.tex $(HOME)/.pandoc/templates/default.tex
+	ln -fs $(DOTFILES)/pandoc/class.tex $(HOME)/.pandoc/templates/class.tex
 
 clean-pandoc:
 	-rm -r $(HOME)/.pandoc
@@ -59,13 +59,13 @@ clean-pandoc:
 ## Fish recipes
 
 fish: _common-shell
-	mkdir -p $(HOME)/.config/fish/functions
+	mkdir -p $(HOME)/.config/fish
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
-	ln -fs $(DOTFILES)/fish/functions/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
+	ln -fs $(DOTFILES)/fish/functions $(HOME)/.config/fish/
 
 clean-fish: _clean-shell
 	-rm $(HOME)/.config/fish/config.fish
-	-rm $(HOME)/.config/fish/functions/fish_prompt.fish
+	-rm $(HOME)/.config/fish/functions
 
 ########################################################
 ## Bash recipes
