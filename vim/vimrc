@@ -1,13 +1,14 @@
 "" Packages
 call plug#begin('~/.vim/plugins')
 
-Plug 'liuchengxu/vim-better.default'
+Plug 'liuchengxu/vim-better-default'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
