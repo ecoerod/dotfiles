@@ -1,63 +1,15 @@
-"" Windows sucks
-if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-endif
+"" Packages
+call plug#begin('~/.vim/plugins')
 
-"" Syntax settings
-syntax on
-filetype on
-filetype indent on
+Plug 'liuchengxu/vim-better.default'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+Plug 'mattn/emmet-vim'
 
-"" Misc
-set tabstop=4
-set softtabstop=4
-set expandtab
-set smartindent
-set autoindent
-set modelines=1
-set shellslash  "universal path separator, needed for Windows
-autocmd GUIEnter * set vb t_vb=
-set enc=utf-8
-set fileencoding=utf-8
-set clipboard=unnamedplus
-
-"" GUI settings
-if has('win32') || has('win64')
-    set guifont=Hack:h11.5
-else
-    set guifont=Hack\ 11
-endif
-"" set lines=50 columns=95
-set colorcolumn=90
-set number
-set cursorline 
-set wildmenu    "autocomplete menu for files
-set showmatch   "show matching pairs
-set go=aegiMLt
-
-"" Searching settings
-set incsearch
-set hlsearch
-nnoremap <leader>nh :nohlsearch<CR> "turn off search
-
-"" Folding
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-set foldmethod=indent
-nnoremap <space> za
-
-"" Better movement
-nnoremap j gj
-nnoremap k gk
-nnoremap B ^
-nnoremap E $
-nnoremap $ <nop>
-nnoremap ^ <nop>
-nnoremap gV `[v`]
-
-"" Backspace behaviour
-set backspace=indent,eol,start
+call plug#end()
 
 "" Leader mappings
 let mapleader=','
@@ -65,22 +17,7 @@ map <leader>ss :source ~/.vimrc<CR>
 map <leader>bd :bd<CR>
 inoremap jk <esc>
 
-"" Packages
-call plug#begin('~/.vim/plugins')
-
-Plug 'chriskempson/base16-vim'
-
-Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
-Plug 'editorconfig/editorconfig-vim'
-
-Plug 'w0rp/ale'
-
-Plug 'mattn/emmet-vim'
-
-call plug#end()
-
+"" Color scheme
 let base16colorspace=256
 colorscheme base16-tomorrow-night
 
@@ -102,3 +39,4 @@ highlight clear ALEWarningSign
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_install_global=0
 autocmd FileType html,css EmmetInstall
+

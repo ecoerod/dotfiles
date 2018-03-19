@@ -43,7 +43,20 @@ vim:
 
 clean-vim:
 	-rm $(HOME)/.vimrc
-	-rm -r $(HOME)/.vim
+	-rm -rf $(HOME)/.vim
+
+
+########################################################
+## Neovim recipes
+
+nvim:
+	mkdir -p $(HOME)/.config/nvim
+	ln -fs $(DOTFILES)/vim/vimrc $(HOME)/.config/nvim/init.vim
+	curl -fLo $(HOME)/.config/nvim/autoload/plug.vim --create-dirs $(VIMPLUG)
+
+clean-nvim:
+	-rm $(HOME)/.config/nvim/init.vim
+	-rm -rf $(HOME)/.config/nvim
 
 ########################################################
 ## Fish recipes
