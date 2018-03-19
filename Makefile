@@ -7,7 +7,8 @@ VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
-.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty
+PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git 
+.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc
 
 
 ########################################################
@@ -32,7 +33,7 @@ clean-emacs:
 	-systemctl --user disable --now emacs.service
 	-rm $(HOME)/.spacemacs
 	-rm $(HOME)/.emacs.d/private/snippets
-	-rm -r $(HOME)/.emacs.d
+	-rm -rf $(HOME)/.emacs.d
 
 ########################################################
 ## Vim recipes
@@ -59,16 +60,31 @@ clean-nvim:
 	-rm -rf $(HOME)/.config/nvim
 
 ########################################################
+## Pandoc recipes
+
+pandoc:
+	mkdir -p $(HOME)/.pandoc/templates
+	ln -fs $(DOTFILES)/pandoc/class.tex $(HOME)/.pandoc/templates/class.tex
+	git clone $(PANDOCMINTED) $(HOME)/.local/bin/pandoc-filters/pandoc-minted
+	ln -fs $(HOME)/.local/bin/pandoc-filters/pandoc-minted/pandoc-minted.py $(HOME)/.local/bin/pandoc-minted
+
+clean-pandoc:
+	-rm -r $(HOME)/.pandoc
+	-rm $(HOME)/.local/bin/pandoc-minted
+	-rm -rf $(HOME)/.local/bin/pandoc-filters
+
+########################################################
 ## Fish recipes
 
 fish: _common-shell
-	mkdir -p $(HOME)/.config/fish/functions
+	mkdir -p $(HOME)/.config/fish
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
-	ln -fs $(DOTFILES)/fish/functions/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
+	ln -fs $(DOTFILES)/fish/functions $(HOME)/.config/fish/
+	-mkdir -p $(HOME)/.local/bin
 
 clean-fish: _clean-shell
 	-rm $(HOME)/.config/fish/config.fish
-	-rm $(HOME)/.config/fish/functions/fish_prompt.fish
+	-rm $(HOME)/.config/fish/functions
 
 ########################################################
 ## Bash recipes
