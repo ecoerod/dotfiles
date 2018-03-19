@@ -14,8 +14,8 @@ PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git
 ########################################################
 ## Main recipes
 
-all: emacs vim fish bash git fonts pacaur tmux alacritty
-clean: clean-emacs clean-fish clean-vim clean-git clean-fonts clean-bash clean-pacaur clean-tmux clean-alacritty
+all: emacs nvim fish bash git fonts pacaur tmux alacritty
+clean: clean-emacs clean-fish clean-nvim clean-git clean-fonts clean-bash clean-pacaur clean-tmux clean-alacritty
 
 ########################################################
 ## Emacs recipes
