@@ -5,4 +5,7 @@
       doom-font
       (font-spec :name "Hack" :size 14))
 
-(global-set-key (kbd "<tab>") 'company-complete)
+(add-hook! prog-mode
+  (local-set-key (kbd "<tab>") 'company-complete))
+
+(setq confirm-kill-emacs nil)
