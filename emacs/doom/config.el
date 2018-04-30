@@ -16,3 +16,15 @@
 
 (setq persp-interactive-init-frame-behaviour-override -1
       persp-emacsclient-init-frame-behaviour-override -1)
+
+(add-to-list 'auto-mode-alist '(".xsd" . nxml-mode))
+
+(setq nxml-auto-insert-xml-declaration-flag t
+      nxml-slash-auto-complete-flag t)
+
+(setq org-latex-listings 'minted
+      org-latex-packages-alist '(("cache=false" "minted"))
+      org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
