@@ -1,15 +1,15 @@
-#+LATEX_CLASS: article
-#+LATEX_CLASS_OPTIONS: [a4paper,11pt,hidelinks]
+#+LATEX_CLASS: memoir
 #+OPTIONS: toc:nil date:nil
 
-#+LATEX_HEADER: \usepackage[utf-8]{inputenc}
 #+LATEX_HEADER: \usepackage{parskip}
-#+LATEX_HEADER: \usepackage[rm,bf]{titlesec}
+#+LATEX_HEADER: \usepackage[sf,bf]{titlesec}
+#+LATEX_HEADER: \titlespacing*{\chapter}      {0em}{-.50em}{.5em}
 #+LATEX_HEADER: \titlespacing*{\section}      {0em}{.75em}{.5em}
 #+LATEX_HEADER: \titlespacing*{\section}      {0em}{.75em}{.5em}
 #+LATEX_HEADER: \titlespacing*{\subsection}   {0em}{.50em}{.25em}
 #+LATEX_HEADER: \titlespacing*{\subsubsection}{0em}{.50em}{.25em}
 #+LATEX_HEADER: \titlespacing*{\paragraph}    {0em}{.25em}{.25em}
+#+LATEX_HEADER: \titleformat{\chapter}[display]{\sffamily\bfseries}{}{0pt}{\LARGE}
 
 #+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
 #+LATEX_HEADER: \renewcommand{\figurename}{Figura}
@@ -49,10 +49,17 @@
 #+LATEX_HEADER: \renewcommand{\headrulewidth}{0.4pt}
 #+LATEX_HEADER: \renewcommand{\footrulewidth}{0.4pt}
 #+LATEX_HEADER: \fancyhead[r]{\mythetitle}
-#+LATEX_HEADER: \fancyfoot[l]{Pág \thepage\ de \pageref*{LastPage}}
+#+LATEX_HEADER: \fancyfoot[l]{Pág \thepage\ de \pageref{LastPage}}
 #+LATEX_HEADER: \fancyfoot[r]{\theauthor}
 
 #+LATEX_HEADER: \usepackage[tikz]{mdframed}
 #+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\begin{mdframed}}
 #+LATEX_HEADER: \AfterEndEnvironment{minted}{\end{mdframed}}
 
+#+LATEX_HEADER: \let\oldmaketitle\maketitle
+#+LATEX_HEADER: \renewcommand{\maketitle}{\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}\begin{titlingpage}\oldmaketitle\end{titlingpage}}
+
+#+LATEX_HEADER: \let\oldtableofcontents\tableofcontents
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+#+LATEX_HEADER: \renewcommand{\tableofcontents}{\pagestyle{empty}\phantomsection\pagenumbering{}\oldtableofcontents\clearpage\pagenumbering{arabic}\pagestyle{fancyplain}}
