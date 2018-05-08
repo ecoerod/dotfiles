@@ -5,6 +5,7 @@
 DOTFILES := $(shell pwd)
 VIMPLUG := https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 SPACEMACS := https://github.com/syl20bnr/spacemacs
+DOOM := https://github.com/hlissner/doom-emacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
 PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git 
@@ -22,10 +23,15 @@ reset: clean all
 ## Emacs recipes
 
 emacs:
-	ln -fs $(DOTFILES)/emacs/spacemacs $(HOME)/.spacemacs
-	git clone $(SPACEMACS) $(HOME)/.emacs.d/ --branch develop
-	rm -rf $(HOME)/.emacs.d/private/snippets
-	ln -fs $(DOTFILES)/emacs/snippets $(HOME)/.emacs.d/private
+	# ln -fs $(DOTFILES)/emacs/spacemacs $(HOME)/.spacemacs
+	-rm -r $(HOME)/.doom.d.bak
+	-mv $(HOME)/.doom.d $(HOME)/.doom.d.bak
+	ln -fs $(DOTFILES)/emacs/doom $(HOME)/.doom.d
+	# git clone $(SPACEMACS) $(HOME)/.emacs.d/ --branch develop
+	-git clone $(DOOM) $(HOME)/.emacs.d/ --branch develop
+	cd $(HOME)/.emacs.d && make install 
+	# rm -rf $(HOME)/.emacs.d/private/snippets
+	# ln -fs $(DOTFILES)/emacs/snippets $(HOME)/.emacs.d/private
 	mkdir -p $(HOME)/.config/systemd/user
 	ln -fs $(DOTFILES)/emacs/emacs.service $(HOME)/.config/systemd/user/emacs.service
 	systemctl --user enable emacs.service
