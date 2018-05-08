@@ -8,7 +8,7 @@ SPACEMACS := https://github.com/syl20bnr/spacemacs
 DOOM := https://github.com/hlissner/doom-emacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
-PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git 
+PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git
 FISHERMAN := https://git.io/fisher
 .PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc
 
@@ -22,24 +22,34 @@ reset: clean all
 ########################################################
 ## Emacs recipes
 
-emacs:
-	# ln -fs $(DOTFILES)/emacs/spacemacs $(HOME)/.spacemacs
-	-rm -r $(HOME)/.doom.d.bak
-	-mv $(HOME)/.doom.d $(HOME)/.doom.d.bak
-	ln -fs $(DOTFILES)/emacs/doom $(HOME)/.doom.d
-	# git clone $(SPACEMACS) $(HOME)/.emacs.d/ --branch develop
-	-git clone $(DOOM) $(HOME)/.emacs.d/ --branch develop
-	cd $(HOME)/.emacs.d && make install 
-	# rm -rf $(HOME)/.emacs.d/private/snippets
-	# ln -fs $(DOTFILES)/emacs/snippets $(HOME)/.emacs.d/private
+emacs: emacs-spacemacs
+
+emacs-spacemacs: clean-emacs-doom
+	ln -fs $(DOTFILES)/emacs/spacemacs $(HOME)/.spacemacs
+	git clone $(SPACEMACS) $(HOME)/.emacs.d/ --branch develop
+	rm -rf $(HOME)/.emacs.d/private/snippets
+	ln -fs $(DOTFILES)/emacs/snippets $(HOME)/.emacs.d/private
 	mkdir -p $(HOME)/.config/systemd/user
 	ln -fs $(DOTFILES)/emacs/emacs.service $(HOME)/.config/systemd/user/emacs.service
 	systemctl --user enable emacs.service
 
-clean-emacs:
+emacs-doom: clean-emacs-spacemacs
+	-rm -r $(HOME)/.doom.d.bak
+	-mv $(HOME)/.doom.d $(HOME)/.doom.d.bak
+	ln -fs $(DOTFILES)/emacs/doom $(HOME)/.doom.d
+	-git clone $(DOOM) $(HOME)/.emacs.d/ --branch develop
+	cd $(HOME)/.emacs.d && make install
+
+clean-emacs: clean-emacs-spacemacs clean-emacs-doom
+
+clean-emacs-spacemacs:
 	-systemctl --user disable --now emacs.service
 	-rm $(HOME)/.spacemacs
 	-rm $(HOME)/.emacs.d/private/snippets
+	-rm -rf $(HOME)/.emacs.d
+
+clean-emacs-doom:
+	-rm -rf $(HOME)/.doom.d
 	-rm -rf $(HOME)/.emacs.d
 
 ########################################################
@@ -92,7 +102,7 @@ fish: _common-shell
 
 clean-fish: _clean-shell
 	-rm $(HOME)/.config/fish/config.fish
-	-rm $(HOME)/.config/fish/functions
+	-rm -rf $(HOME)/.config/fish/functions
 
 ########################################################
 ## Bash recipes
