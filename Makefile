@@ -8,14 +8,15 @@ SPACEMACS := https://github.com/syl20bnr/spacemacs
 BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
 PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git 
+FISHERMAN := https://git.io/fisher
 .PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc
-
 
 ########################################################
 ## Main recipes
 
-all: emacs nvim fish bash git fonts pacaur tmux alacritty
-clean: clean-emacs clean-fish clean-nvim clean-git clean-fonts clean-bash clean-pacaur clean-tmux clean-alacritty
+all: emacs nvim fish bash git fonts pacaur tmux alacritty pandoc
+clean: clean-emacs clean-fish clean-nvim clean-git clean-fonts clean-bash clean-pacaur clean-tmux clean-alacritty clean-pandoc
+reset: clean all
 
 ########################################################
 ## Emacs recipes
@@ -77,9 +78,10 @@ clean-pandoc:
 ## Fish recipes
 
 fish: _common-shell
-	mkdir -p $(HOME)/.config/fish
+	mkdir -p $(HOME)/.config/fish/functions
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
-	ln -fs $(DOTFILES)/fish/functions $(HOME)/.config/fish/
+	curl -Lo $(HOME)/.config/fish/functions/fisher.fish --create-dirs $(FISHERMAN)
+	ln -fs $(DOTFILES)/fish/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
 	-mkdir -p $(HOME)/.local/bin
 
 clean-fish: _clean-shell
