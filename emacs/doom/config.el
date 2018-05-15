@@ -5,8 +5,6 @@
       doom-font
       (font-spec :name "Iosevka" :size 16))
 
-
-
 (map! :map evil-motion-state-map
       "¡" 'evil-beginning-of-line
       "ç" 'evil-end-of-line)
