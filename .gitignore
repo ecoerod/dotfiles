@@ -1,3 +1,4 @@
 fish/functions/__*.*
 fish/functions/*.awk
 fish/functions/fisher.fish
+*.elc
