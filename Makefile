@@ -10,13 +10,14 @@ BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
 PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git
 FISHERMAN := https://git.io/fisher
-.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc
+PYENV := https://github.com/pyenv/pyenv.git
+.PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc pyenv clean-*
 
 ########################################################
 ## Main recipes
 
-all: emacs nvim fish bash git fonts tmux alacritty pandoc
-clean: clean-emacs clean-fish clean-nvim clean-git clean-fonts clean-bash clean-tmux clean-alacritty clean-pandoc
+all: emacs nvim fish bash git fonts tmux alacritty pandoc pyenv
+clean: clean-*
 reset: clean all
 
 ########################################################
@@ -89,6 +90,15 @@ clean-pandoc:
 	-rm -r $(HOME)/.pandoc
 	-rm $(HOME)/.local/bin/pandoc-minted
 	-rm -rf $(HOME)/.local/bin/pandoc-filters
+
+########################################################
+## Pyenv recipes
+
+pyenv: 
+	git clone $(PYENV) $(HOME)/.pyenv
+
+clean-pyenv:
+	-rm -rf $(PYENV) $(HOME)/.pyenv
 
 ########################################################
 ## Fish recipes
