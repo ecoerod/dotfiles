@@ -11,6 +11,7 @@ TPM := https://github.com/tmux-plugins/tpm
 PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git
 FISHERMAN := https://git.io/fisher
 PYENV := https://github.com/pyenv/pyenv.git
+PYENV_UPDATE := git://github.com/pyenv/pyenv-update.git
 .PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc pyenv clean-*
 
 ########################################################
@@ -94,11 +95,12 @@ clean-pandoc:
 ########################################################
 ## Pyenv recipes
 
-pyenv: 
+pyenv:
 	git clone $(PYENV) $(HOME)/.pyenv
+	git clone $(PYENV_UPDATE) $(HOME)/.pyenv/plugins/pyenv-update
 
 clean-pyenv:
-	-rm -rf $(PYENV) $(HOME)/.pyenv
+	-rm -rf $(HOME)/.pyenv
 
 ########################################################
 ## Fish recipes
