@@ -1,7 +1,9 @@
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.hinting: true
+Xft.antialias: true
 Xft.rgba: rgb
-Emacs*geometry: 130x82
+
+Emacs*geometry: 125x82
+Emacs*FontBackend: xft
