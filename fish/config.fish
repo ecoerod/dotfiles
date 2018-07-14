@@ -5,7 +5,7 @@ set -g -x BROWSER chromium
 set -g -x EDITOR emacsclient -t
 set -g -x VISUAL emacsclient -c -a emacs
 set -g -x fish_greeting ""
-set -g -x PATH $PATH /home/nelthorim/.local/bin/
+set -g -x PATH $PATH $HOME/.local/bin/ $HOME/.yarn/bin
 set -g -x JAVA_HOME /usr/lib/jvm/default/
 
 # aliases
