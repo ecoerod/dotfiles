@@ -9,13 +9,11 @@
        (lookup           ; helps you navigate your code and documentation
         +devdocs         ; ...on devdocs.io online
         +docsets)        ; ...or in Dash docsets locally
-       services          ; TODO managing external services & code builders
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
        (syntax-checker    ; tasing you for every semicolon you forget
         +childframe)
-       version-control   ; remember, remember that commit in November
-       workspaces        ; tab emulation, persistence & separate workspaces
+      ;workspaces        ; tab emulation, persistence & separate workspaces
 
        :completion
        (company          ; the ultimate code completion backend
@@ -24,6 +22,7 @@
       ;helm              ; the *other* search engine for love and life
       ;ido               ; the other *other* search engine...
        (ivy              ; a search engine for love and life
+        +fuzzy
         +childframe)
 
        :ui
@@ -32,23 +31,32 @@
        doom-modeline     ; a snazzy Atom-inspired mode-line
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        evil-goggles      ; display visual hints when editing in evil
+      ;fci
        hl-todo           ; highlight TODO/FIXME/NOTE tags
        nav-flash         ; blink the current line after jumping
        neotree           ; a project drawer, like NERDTree for vim
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
+       pretty-code
       ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
       ;unicode           ; extended unicode support for various languages
       ;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       vc-gutter
        window-select     ; visually switch windows
+
+       :editor
+       parinfer
+       rotate-text       ; cycle region at point between text candidates
 
        :emacs
        dired             ; making dired pretty [functional]
-       electric-indent   ; smarter, keyword-based electric-indent
+       ediff             ; comparing files in Emacs
+       electric          ; smarter, keyword-based electric-indent
        eshell            ; a consistent, cross-platform shell (WIP)
        imenu             ; an imenu sidebar and searchable code index
        term              ; terminals in Emacs
+       vc
 
        :tools
        editorconfig      ; let someone else argue about tabs vs spaces
@@ -60,7 +68,6 @@
       ;password-store    ; password manager for nerds
        pdf               ; pdf enhancements
        rgb               ; creating color strings
-       rotate-text       ; cycle region at point between text candidates
        tmux              ; an API for interacting with tmux
        upload            ; map local to remote projects via ssh/ftp
 
@@ -93,8 +100,7 @@
         +babel           ; running code in org
         +capture         ; org-capture in and outside of Emacs
         +export          ; Exporting org to whatever you want
-        +present         ; Emacs for presentations
-        +publish)        ; Emacs+Org as a static site generator
+        +present)        ; Emacs for presentations
       ;perl              ; write code no one else can comprehend
       ;php               ; perl's insecure younger brother
       ;plantuml          ; diagrams for confusing people more
@@ -117,9 +123,9 @@
       ;irc               ; how neckbeards socialize
       ;(rss +org)        ; emacs as an RSS reader
       ;twitter           ; twitter client https://twitter.com/vnought
-      ;(write            ; emacs as a word processor (latex + org + markdown)
-      ; +wordnut         ; wordnet (wn) search
-      ; +langtool)       ; a proofreader (grammar/style check) for Emacs
+       (write            ; emacs as a word processor (latex + org + markdown)
+        +wordnut         ; wordnet (wn) search
+        +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :collab
        impatient-mode    ; show off code over HTTP
