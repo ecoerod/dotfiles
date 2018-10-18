@@ -18,14 +18,15 @@
        :completion
        (company          ; the ultimate code completion backend
         +auto)
-       (helm             ; the *other* search engine for love and life
-        +fuzzy)
+      ;(helm             ; the *other* search engine for love and life
+      ;  +fuzzy)
       ;ido               ; the other *other* search engine...
-      ;(ivy              ; a search engine for love and life
-      ; +fuzzy
-      ; +childframe)
+       (ivy              ; a search engine for love and life
+        +fuzzy
+        +childframe)
 
        :ui
+      ;deft
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-modeline     ; a snazzy Atom-inspired mode-line
@@ -33,9 +34,10 @@
        evil-goggles      ; display visual hints when editing in evil
       ;fci
        hl-todo           ; highlight TODO/FIXME/NOTE tags
-       modeline
+      ;modeline
        nav-flash         ; blink the current line after jumping
       ;neotree           ; a project drawer, like NERDTree for vim
+       treemacs
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
@@ -57,11 +59,14 @@
        ediff             ; comparing files in Emacs
        electric          ; smarter, keyword-based electric-indent
        eshell            ; a consistent, cross-platform shell (WIP)
+       hideshow
        imenu             ; an imenu sidebar and searchable code index
        term              ; terminals in Emacs
        vc
 
        :tools
+      ;ansible
+      ;docker
        editorconfig      ; let someone else argue about tabs vs spaces
       ;ein               ; tame Jupyter notebooks with emacs
        gist              ; interacting with github gists
@@ -81,6 +86,7 @@
       ;(cc +irony +tags) ; C/C++/Obj-C madness
       ;clojure           ; java with a lisp
       ;common-lisp
+      ;coq
       ;crystal           ; ruby at the speed of c
       ;csharp            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
@@ -92,6 +98,7 @@
       ;go                ; the hipster dialect
        (haskell +intero) ; a language that's lazier than I am
       ;hy                ; readability of scheme w/ speed of python
+      ;idris
       ;(java +meghanada) ; the poster child for carpal tunnel syndrome
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
       ;julia             ; a better, faster MATLAB
@@ -109,7 +116,7 @@
         +export          ; Exporting org to whatever you want
         +present)        ; Emacs for presentations
       ;perl              ; write code no one else can comprehend
-      ;php               ; perl's insecure younger brother
+       php               ; perl's insecure younger brother
       ;plantuml          ; diagrams for confusing people more
       ;purescript        ; javascript, but functional
        python            ; beautiful is better than ugly
@@ -137,6 +144,7 @@
         +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :collab
+      ;floobits
        impatient-mode    ; show off code over HTTP
 
        :config
