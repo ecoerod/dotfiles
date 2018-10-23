@@ -19,6 +19,7 @@
 	helper = cache --timeout=3600
 [merge]
 	tool = vimdiff
+	ff = false
 [mergetool]
 	keeptemporaries = false
 	keepbackups = false
@@ -35,3 +36,5 @@
 	unstage = reset HEAD --
 	dc = diff --cached
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+[merge "ours"]
+	driver = true
