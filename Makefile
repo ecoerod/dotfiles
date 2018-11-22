@@ -24,7 +24,7 @@ reset: clean all
 ########################################################
 ## Emacs recipes
 
-emacs: emacs-spacemacs
+emacs: emacs-doom
 
 emacs-spacemacs: clean-emacs-doom
 	ln -fs $(DOTFILES)/emacs/spacemacs $(HOME)/.spacemacs
