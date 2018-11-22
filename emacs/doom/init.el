@@ -41,7 +41,8 @@
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
-       pretty-code
+       (pretty-code
+        +fira)
       ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
       ;unicode           ; extended unicode support for various languages
       ;vi-tilde-fringe   ; fringe tildes to mark beyond EOB

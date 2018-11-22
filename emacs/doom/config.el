@@ -18,13 +18,18 @@
 (setq persp-interactive-init-frame-behaviour-override -1
       persp-emacsclient-init-frame-behaviour-override -1)
 
-(add-to-list 'auto-mode-alist '(".xsd" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xsd$" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.php$'" . php-mode))
 
 (setq nxml-auto-insert-xml-declaration-flag t)
       ;;nxml-slash-auto-complete-flag t)
 
 (setq org-latex-listings 'minted
       org-latex-packages-alist '(("cache=false" "minted"))
+      org-latex-minted-options '(("linenos" "true")
+                                 ("breaklines")
+                                 ("breakbefore" "."))
+      org-latex-image-default-width "0.5\\textwidth"
       org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
