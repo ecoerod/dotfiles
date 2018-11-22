@@ -16,7 +16,9 @@ function emacsw
 end
 
 function report
-  pandoc $argv[1] -o $argv[2] --template=$HOME/Dropbox/dotfiles/pandoc/class-report.tex --pdf-engine=lualatex --pdf-engine-opt=-shell-escape
+  pandoc --filter pandoc-minted $argv[1].rst -o $argv[1].tex --template=$HOME/Dropbox/dotfiles/pandoc/class-report.tex
+  lualatex -shell-escape $argv[1].tex 1>/dev/null
+  rm $argv[1].{aux,out,log}
 end
 
 # pyenv settings

@@ -81,12 +81,18 @@ $endif$
 \fancyfoot[l]{Pág \thepage\ de \pageref*{LastPage}}
 \fancyfoot[r]{\theauthor}
 
+\usepackage[cache=false]{minted}
+\setminted{linenos,breaklines}
 \usepackage[tikz]{mdframed}
 \BeforeBeginEnvironment{minted}{\begin{mdframed}}
 \AfterEndEnvironment{minted}{\end{mdframed}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
 
 \begin{document}
 $if(title)$
