@@ -1,7 +1,7 @@
 #+LATEX_CLASS: memoir
 #+OPTIONS: toc:nil date:nil
 
-#+LATEX_HEADER: \usepackage{parskip}
+#+LATEX_HEADER: \usepackage[utf-8]{inputenc}
 #+LATEX_HEADER: \usepackage[sf,bf]{titlesec}
 #+LATEX_HEADER: \titlespacing*{\chapter}      {0em}{-.50em}{.5em}
 #+LATEX_HEADER: \titlespacing*{\section}      {0em}{.75em}{.5em}
@@ -10,6 +10,9 @@
 #+LATEX_HEADER: \titlespacing*{\subsubsection}{0em}{.50em}{.25em}
 #+LATEX_HEADER: \titlespacing*{\paragraph}    {0em}{.25em}{.25em}
 #+LATEX_HEADER: \titleformat{\chapter}[display]{\sffamily\bfseries}{}{0pt}{\LARGE}
+
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+LATEX_HEADER: \nonzeroparskip
 
 #+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
 #+LATEX_HEADER: \renewcommand{\figurename}{Figura}
@@ -60,6 +63,6 @@
 #+LATEX_HEADER: \renewcommand{\maketitle}{\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}\begin{titlingpage}\oldmaketitle\end{titlingpage}}
 
 #+LATEX_HEADER: \let\oldtableofcontents\tableofcontents
-#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \usepackage[unicode,naturalnames]{hyperref}
 #+LATEX_HEADER: \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
 #+LATEX_HEADER: \renewcommand{\tableofcontents}{\pagestyle{empty}\phantomsection\pagenumbering{}\oldtableofcontents\clearpage\pagenumbering{arabic}\pagestyle{fancyplain}}
