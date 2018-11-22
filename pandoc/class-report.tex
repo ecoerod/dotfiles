@@ -1,0 +1,106 @@
+\documentclass[a4paper,11pt,hidelinks]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{parskip}
+\usepackage[rm,bf]{titlesec}
+\titlespacing*{\section}      {0em}{.75em}{.5em}
+\titlespacing*{\section}      {0em}{.75em}{.5em}
+\titlespacing*{\subsection}   {0em}{.50em}{.25em}
+\titlespacing*{\subsubsection}{0em}{.50em}{.25em}
+\titlespacing*{\paragraph}    {0em}{.25em}{.25em}
+
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{paratype}
+\usepackage{garamondx}
+\usepackage{inconsolata}
+\usepackage[cm]{sfmath}
+
+\usepackage[margin=1in,includeheadfoot]{geometry}
+
+\usepackage{lastpage}
+\usepackage{verbatim}
+\usepackage[cmyk]{xcolor}
+\usepackage[section]{placeins}
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
+\usepackage{titling}
+\posttitle{\par\end{center}\vskip -1em}
+\setlength{\droptitle}{-3em}
+\renewcommand{\maketitlehooka}{\textrm}
+\renewcommand{\maketitlehookb}{\textrm}
+\let\oldtitle\title
+\renewcommand{\title}[1]{\oldtitle{#1}\newcommand{\mythetitle}{#1}}
+
+$if(author)$
+\author{$author$}
+$else$
+\author{Eduardo Coello Rodríguez}
+$endif$
+\date{}
+$if(title)$
+\title{$title$}
+$endif$
+\hypersetup{
+ pdfauthor={$author$},
+ pdftitle={$title$},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Pandoc},
+ pdflang={English}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\plainheadrulewidth}{0.4pt}
+\renewcommand{\plainfootrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[r]{\mythetitle}
+\fancyfoot[l]{Pág \thepage\ de \pageref*{LastPage}}
+\fancyfoot[r]{\theauthor}
+
+\usepackage[tikz]{mdframed}
+\BeforeBeginEnvironment{minted}{\begin{mdframed}}
+\AfterEndEnvironment{minted}{\end{mdframed}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+$if(title)$
+\maketitle
+$endif$
+
+$if(toc)$
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+$endif$
+
+$body$
+
+\end{document}
