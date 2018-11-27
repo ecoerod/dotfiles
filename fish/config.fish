@@ -17,8 +17,9 @@ end
 
 function report
   pandoc --filter pandoc-minted $argv[1].rst -o $argv[1].tex --template=$HOME/Dropbox/dotfiles/pandoc/class-report.tex
-  lualatex -shell-escape $argv[1].tex 1>/dev/null
-  rm $argv[1].{aux,out,log}
+  lualatex -shell-escape $argv[1].tex > output.log;
+  and lualatex -shell-escape $argv[1].tex >> output.log;
+  and rm $argv[1].{aux,log,tex}; and xdg-open $argv[1].pdf 2> /dev/null &
 end
 
 # pyenv settings

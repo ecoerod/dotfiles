@@ -14,6 +14,11 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage{bookmark}
+
+\usepackage[export]{adjustbox}
+\let\includegraphicsbak\includegraphics
+\renewcommand*{\includegraphics}[2][]{\includegraphicsbak[max size={\textwidth}{\textheight},#1]{#2}}
 
 \usepackage{parskip}
 \usepackage[rm,bf]{titlesec}
@@ -36,7 +41,7 @@
 
 \usepackage{lastpage}
 \usepackage{verbatim}
-\usepackage[cmyk]{xcolor}
+% \usepackage[cmyk]{xcolor}
 \usepackage[section]{placeins}
 \let\Oldsection\section
 \renewcommand{\section}{\FloatBarrier\Oldsection}
