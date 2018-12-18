@@ -1,4 +1,4 @@
-#+LATEX_CLASS: memoir
+#+LATEX_CLASS: report
 #+OPTIONS: toc:nil date:nil
 
 #+LATEX_HEADER: \usepackage[utf-8]{inputenc}
@@ -23,7 +23,7 @@
 #+LATEX_HEADER: \usepackage{inconsolata}
 #+LATEX_HEADER: \usepackage[cm]{sfmath}
     
-#+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot]{geometry}
+#+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot,asymmetry]{geometry}
 
 #+LATEX_HEADER: \usepackage{lastpage}
 #+LATEX_HEADER: \usepackage{verbatim}
@@ -66,3 +66,4 @@
 #+LATEX_HEADER: \usepackage[unicode,naturalnames]{hyperref}
 #+LATEX_HEADER: \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
 #+LATEX_HEADER: \renewcommand{\tableofcontents}{\pagestyle{empty}\phantomsection\pagenumbering{}\oldtableofcontents\clearpage\pagenumbering{arabic}\pagestyle{fancyplain}}
+
