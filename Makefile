@@ -110,7 +110,9 @@ fish: _common-shell
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
 	curl -Lo $(HOME)/.config/fish/functions/fisher.fish --create-dirs $(FISHERMAN)
 	ln -fs $(DOTFILES)/fish/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
+	ln -fs $(DOTFILES)/fish/fishfile $(HOME)/.config/fish/fishfile
 	-mkdir -p $(HOME)/.local/bin
+	-fish -c fisher
 
 clean-fish: _clean-shell
 	-rm $(HOME)/.config/fish/config.fish
@@ -172,7 +174,7 @@ clean-alacritty:
 ## Not directly used recipes
 
 _common-shell:
-	git clone $(BASE16) $(HOME)/.config/base16-shell
+	-git clone $(BASE16) $(HOME)/.config/base16-shell
 
 _clean-shell:
-	-rm -r $(HOME)/.config/base16-shell
+	-rm -rf $(HOME)/.config/base16-shell
