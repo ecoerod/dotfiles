@@ -13,6 +13,7 @@
 
 #+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
 #+LATEX_HEADER: \renewcommand{\figurename}{Figura}
+#+LATEX_HEADER: \renewcommand{\lstlistingname}{Archivo}
 #+LATEX_HEADER: \renewcommand{\familydefault}{\sfdefault}
 
 #+LATEX_HEADER: \usepackage{paratype}
