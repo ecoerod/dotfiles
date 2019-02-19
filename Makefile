@@ -17,7 +17,8 @@ PYENV_UPDATE := git://github.com/pyenv/pyenv-update.git
 ########################################################
 ## Main recipes
 
-all: emacs nvim fish bash git fonts tmux alacritty pandoc pyenv
+all: no-emacs emacs
+no-emacs: nvim fish bash git fonts tmux alacritty pandoc pyenv
 clean: clean-*
 reset: clean all
 
