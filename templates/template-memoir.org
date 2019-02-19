@@ -10,9 +10,9 @@
 #+LATEX_HEADER: \titlespacing*{\subsubsection}{0em}{.50em}{.25em}
 #+LATEX_HEADER: \titlespacing*{\paragraph}    {0em}{.25em}{.25em}
 #+LATEX_HEADER: \titleformat{\chapter}[display]{\sffamily\bfseries}{}{0pt}{\LARGE}
+#+LATEX_HEADER: \usepackage{parskip}
 
 #+LATEX_HEADER: \setlength{\parindent}{0pt}
-#+LATEX_HEADER: \nonzeroparskip
 
 #+LATEX_HEADER: \renewcommand{\contentsname}{Índice}
 #+LATEX_HEADER: \renewcommand{\figurename}{Figura}
@@ -22,7 +22,7 @@
 #+LATEX_HEADER: \usepackage{garamondx}
 #+LATEX_HEADER: \usepackage{inconsolata}
 #+LATEX_HEADER: \usepackage[cm]{sfmath}
-    
+
 #+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot,asymmetry]{geometry}
 
 #+LATEX_HEADER: \usepackage{lastpage}
@@ -66,4 +66,3 @@
 #+LATEX_HEADER: \usepackage[unicode,naturalnames]{hyperref}
 #+LATEX_HEADER: \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
 #+LATEX_HEADER: \renewcommand{\tableofcontents}{\pagestyle{empty}\phantomsection\pagenumbering{}\oldtableofcontents\clearpage\pagenumbering{arabic}\pagestyle{fancyplain}}
-
