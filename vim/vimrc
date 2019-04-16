@@ -10,6 +10,9 @@ Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -29,6 +32,7 @@ inoremap jk <esc>
 "" Color scheme
 let base16colorspace=256
 colorscheme base16-tomorrow-night
+set termguicolors
 
 "" Airline
 set laststatus=2
@@ -51,3 +55,9 @@ autocmd FileType html,css EmmetInstall
 
 "" Deoplete
 let g:deoplete#enable_at_startup = 1
+
+
+"" Snippets
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
