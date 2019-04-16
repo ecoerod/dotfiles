@@ -10,9 +10,6 @@
         +devdocs         ; ...on devdocs.io online
         +docsets)        ; ...or in Dash docsets locally
        snippets          ; my elves. They type so I don't have to
-       spellcheck        ; tasing you for misspelling mispelling
-       (syntax-checker    ; tasing you for every semicolon you forget
-        +childframe)
       ;workspaces        ; tab emulation, persistence & separate workspaces
 
        :completion
@@ -29,7 +26,7 @@
       ;deft
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       doom-modeline     ; a snazzy Atom-inspired mode-line
+       modeline     ; a snazzy Atom-inspired mode-line
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        evil-goggles      ; display visual hints when editing in evil
       ;fci
@@ -50,7 +47,8 @@
        window-select     ; visually switch windows
 
        :editor
-      ;(format +onsave)
+       (format +onsave)
+       fold
        multiple-cursors
        parinfer
        rotate-text       ; cycle region at point between text candidates
@@ -60,7 +58,6 @@
        ediff             ; comparing files in Emacs
        electric          ; smarter, keyword-based electric-indent
        eshell            ; a consistent, cross-platform shell (WIP)
-       hideshow
        imenu             ; an imenu sidebar and searchable code index
        term              ; terminals in Emacs
        vc
@@ -70,6 +67,8 @@
       ;docker
        editorconfig      ; let someone else argue about tabs vs spaces
       ;ein               ; tame Jupyter notebooks with emacs
+       flyspell
+       flycheck
        gist              ; interacting with github gists
       ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs

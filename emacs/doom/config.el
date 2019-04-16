@@ -45,7 +45,7 @@
 (after! ox-latex
   (add-to-list 'org-latex-classes
              '("report"
-               "\\documentclass[openany,a4paper,11pt,hidelinks,oneside]{memoir}"
+               "\\documentclass[openany,a4paper,11pt,hidelinks,oneside]{report}"
                ("\\chapter{%s}" . "\\chapter*{%s}")
                ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
