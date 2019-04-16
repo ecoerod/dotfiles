@@ -2,7 +2,7 @@
 	proxy =
 [user]
 	name = Eduardo Coello Rodríguez
-	email = gkw5024@gmail.com
+	email = ecoerod@gmail.com
 	signingkey = 78B619B4
 [commit]
 	gpgsign = true
@@ -13,13 +13,13 @@
 	filemode = false
 	eol = lf
 	autocrlf = input
+	excludesfile = /home/nelthorim/.gitignore_global
 [color]
 	ui = true
 [credential]
 	helper = cache --timeout=3600
 [merge]
 	tool = vimdiff
-	ff = false
 [mergetool]
 	keeptemporaries = false
 	keepbackups = false
@@ -36,7 +36,6 @@
 	unstage = reset HEAD --
 	dc = diff --cached
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-    update-from = "!f() { git fetch $1 --prune; git merge --ff-only $1/$2 || git rebase --preserve-merges $1/$2; }; f"
 [merge "ours"]
 	driver = true
 [gpg]
