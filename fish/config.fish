@@ -7,6 +7,7 @@ set -g -x VISUAL emacsclient -c -a emacs
 set -g -x fish_greeting ""
 set -g -x PATH $PATH $HOME/.local/bin/ $HOME/.yarn/bin $HOME/.config/composer/vendor/bin
 set -g -x JAVA_HOME /usr/lib/jvm/default/
+set -g -x BAT_THEME Tomorrow-Night
 
 # aliases
 alias emacs  "emacs -nw"
