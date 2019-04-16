@@ -1,5 +1,5 @@
 #+LATEX_CLASS: report
-#+OPTIONS: toc:nil date:nil
+#+OPTIONS: toc:3 date:nil
 
 #+LATEX_HEADER: \usepackage[utf-8]{inputenc}
 #+LATEX_HEADER: \usepackage[sf,bf]{titlesec}
@@ -10,7 +10,9 @@
 #+LATEX_HEADER: \titlespacing*{\subsubsection}{0em}{.50em}{.25em}
 #+LATEX_HEADER: \titlespacing*{\paragraph}    {0em}{.25em}{.25em}
 #+LATEX_HEADER: \titleformat{\chapter}[display]{\sffamily\bfseries}{}{0pt}{\LARGE}
-#+LATEX_HEADER: \usepackage{parskip}
+
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+LATEX_HEADER: \nonzeroparskip
 
 #+LATEX_HEADER: \setlength{\parindent}{0pt}
 
