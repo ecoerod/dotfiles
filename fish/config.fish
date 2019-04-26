@@ -2,8 +2,8 @@
 set -g -x CFLAGS "-O2"
 set -g -x MAKEFLAGS "-j"
 set -g -x BROWSER chromium
-set -g -x EDITOR emacsclient -t
-set -g -x VISUAL emacsclient -c -a emacs
+set -g -x EDITOR emacs -nw
+set -g -x VISUAL emacs -c
 set -g -x fish_greeting ""
 set -g -x PATH $PATH $HOME/.local/bin/ $HOME/.yarn/bin $HOME/.config/composer/vendor/bin
 set -g -x JAVA_HOME /usr/lib/jvm/default/
@@ -13,7 +13,7 @@ set -g -x BAT_THEME Tomorrow-Night
 alias emacs  "emacs -nw"
 
 function emacsw
-    emacsclient -c -a emacs $argv 2>/dev/null &
+    emacs -c $argv 2>/dev/null &
 end
 
 function report
@@ -38,7 +38,7 @@ end
 
 # Spacefish
 set SPACEFISH_PROMPT_ORDER time user host dir git package exec_time line_sep jobs exit_code char
-# set SPACEFISH_CHAR_SYMBOL λ
+set SPACEFISH_CHAR_SYMBOL λ
 set SPACEFISH_USER_SHOW always
 set SPACEFISH_USER_COLOR blue
 set SPACEFISH_USER_SUFFIX ""
@@ -48,10 +48,6 @@ set SPACEFISH_HOST_PREFIX (set_color yellow)@
 set SPACEFISH_DIR_PREFIX ""
 set SPACEFISH_DIR_SUFFIX " "
 set SPACEFISH_DIR_COLOR green
-# set SPACEFISH_GIT_PREFIX (set_color purple)"["
-# set SPACEFISH_GIT_SUFFIX (set_color purple)"] "
-# set SPACEFISH_GIT_STATUS_PREFIX " "
-# set SPACEFISH_GIT_STATUS_SUFFIX ""
 
 # Base16 Shell
 if status --is-interactive
