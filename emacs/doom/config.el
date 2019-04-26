@@ -45,11 +45,16 @@
 (after! ox-latex
   (add-to-list 'org-latex-classes
              '("report"
-               "\\documentclass[openany,a4paper,11pt,hidelinks,oneside]{report}"
+               "\\documentclass[openany,a4paper,11pt,hidelinks,oneside]{memoir}"
                ("\\chapter{%s}" . "\\chapter*{%s}")
                ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+ (add-to-list 'org-latex-packages-alist '("" "minted")
+    (setq org-latex-listings 'minted
+          org-latex-packages-alist '(("cache=false" "minted"))
+          org-latex-minted-options '(("linenos" "true")
+                                     ("breaklines")
+                                     ("breakbefore" ".")))))
