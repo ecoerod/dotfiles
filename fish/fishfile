@@ -1,4 +1,8 @@
-matchai/spacefish
+# Prompt
+rafaelrinaldi/pure
+acomagu/fish-async-prompt
+# Utils
+oh-my-fish/plugin-bang-bang
 jethrokuan/z
 jethrokuan/fzf
 edc/bass

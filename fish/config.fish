@@ -8,6 +8,7 @@ set -g -x fish_greeting ""
 set -g -x PATH $PATH $HOME/.local/bin/ $HOME/.yarn/bin $HOME/.config/composer/vendor/bin
 set -g -x JAVA_HOME /usr/lib/jvm/default/
 set -g -x BAT_THEME Tomorrow-Night
+set -g -x GPG_TTY (tty)
 
 # aliases
 alias emacs  "emacs -nw"
@@ -55,3 +56,5 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
+# Async
+set -g async_prompt_functions _pure_prompt_git

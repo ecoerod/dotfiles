@@ -33,7 +33,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(ruby
      ;; General layers
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t)
@@ -41,7 +41,6 @@ This function should only modify configuration layer settings."
      lsp
      multiple-cursors
      semantic
-     spell-checking
      syntax-checking
      themes-megapack
      templates

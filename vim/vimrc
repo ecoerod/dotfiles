@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugins')
 
 Plug 'liuchengxu/vim-better-default'
-Plug 'chriskempson/base16-vim'
+Plug 'Soares/base16.nvim'
 Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,7 +31,8 @@ inoremap jk <esc>
 
 "" Color scheme
 let base16colorspace=256
-colorscheme base16-tomorrow-night
+set background=dark
+colorscheme tomorrow
 set termguicolors
 
 "" Airline

@@ -70,6 +70,7 @@
        flyspell
        flycheck
        gist              ; interacting with github gists
+       lsp
       ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
        magit             ;

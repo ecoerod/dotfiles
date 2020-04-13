@@ -1,5 +1,4 @@
 #+LATEX_CLASS: report
-#+OPTIONS: toc:3 date:nil
 
 #+LATEX_HEADER: \usepackage[utf-8]{inputenc}
 #+LATEX_HEADER: \usepackage[sf,bf]{titlesec}
@@ -25,7 +24,7 @@
 #+LATEX_HEADER: \usepackage{inconsolata}
 #+LATEX_HEADER: \usepackage[cm]{sfmath}
 
-#+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot,asymmetry]{geometry}
+#+LATEX_HEADER: \usepackage[margin=1in,includeheadfoot]{geometry}
 
 #+LATEX_HEADER: \usepackage{lastpage}
 #+LATEX_HEADER: \usepackage{verbatim}
@@ -56,6 +55,8 @@
 #+LATEX_HEADER: \fancyhead[r]{\mythetitle}
 #+LATEX_HEADER: \fancyfoot[l]{Pág \thepage\ de \pageref{LastPage}}
 #+LATEX_HEADER: \fancyfoot[r]{\theauthor}
+
+#+LATEX_HEADER: \usepackage{pdflscape}
 
 #+LATEX_HEADER: \usepackage[tikz]{mdframed}
 #+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\begin{mdframed}}
