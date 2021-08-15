@@ -20,3 +20,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 alias open='xdg-open'
 alias ls='ls --color=auto'
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
