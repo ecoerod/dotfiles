@@ -38,7 +38,7 @@ emacs-doom: clean-emacs-spacemacs
 	-mv $(HOME)/.doom.d $(HOME)/.doom.d.bak
 	ln -fs $(DOTFILES)/emacs/doom $(HOME)/.doom.d
 	-git clone $(DOOM) $(HOME)/.emacs.d/ --branch develop
-	cd $(HOME)/.emacs.d && make install
+	cd $(HOME)/.emacs.d && bin/doom install
 
 clean-emacs: clean-emacs-spacemacs clean-emacs-doom
 

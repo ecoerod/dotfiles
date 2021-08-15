@@ -1,13 +1,20 @@
 ;;;  -*- lexical-binding: t; -*-
 
+(setq default-frame-alist '((undecorated . t)))
+;; (add-to-list 'default-frame-alist '(drag-internal-border . 1))
+;; (add-to-list 'default-frame-alist '(internal-border-width . 5))
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
 (setq doom-theme
       'doom-tomorrow-night
       doom-font
       (font-spec :name "Iosevka" :size 16))
 
-(map! :map evil-motion-state-map
-      "¡" 'evil-beginning-of-line
-      "ç" 'evil-end-of-line)
+;;(map! :map evil-motion-state-map
+;;      "¡" 'evil-beginning-of-line
+;;      "ç" 'evil-end-of-line)
 
 (add-to-list 'company-frontends 'company-preview-frontend)
 
