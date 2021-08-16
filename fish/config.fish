@@ -1,4 +1,4 @@
-# test $TERM != "tmux-256color"; and exec tmux
+test $TERM != "tmux-256color"; and exec tmux
 
 # environment variables
 set -g -x CFLAGS "-O2"
