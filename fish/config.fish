@@ -13,7 +13,7 @@ set -g -x BAT_THEME Tomorrow-Night
 set -g -x GPG_TTY (tty)
 
 # aliases
-alias emacs  "emacs -nw"
+# alias emacs  "emacs -nw"
 
 function emacsw
     emacs -c $argv 2>/dev/null &
@@ -54,8 +54,10 @@ set -g async_prompt_functions _pure_prompt_git
 # WSL workaround: if on a Windows dir, use Windows git instead of WSL
 function is_win_dir
     switch $PWD
-        case /mnt/* return true
-        case '*' return false
+        case '/mnt/*'
+            true
+        case '*' 
+            false
     end
 end
 
