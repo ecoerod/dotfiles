@@ -1,0 +1,27 @@
+add_newline = true
+scan_timeout = 10
+
+format = """
+$username$hostname $directory$git_branch$git_state$git_status$php$python$ruby$status$cmd_duration
+$character
+"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✕](bold red) "
+
+[username]
+show_always = true
+style_user = 'bold blue'
+format = "[$user]($style)[@](bold yellow)"
+
+[hostname]
+ssh_only = false
+style = 'bold red'
+format = "[$hostname]($style)"
+
+[directory]
+style = 'bold green'
+
+[status]
+disabled = false

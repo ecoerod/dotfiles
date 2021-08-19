@@ -10,6 +10,7 @@ BASE16 := https://github.com/chriskempson/base16-shell.git
 TPM := https://github.com/tmux-plugins/tpm
 PANDOCMINTED := https://github.com/nick-ulle/pandoc-minted.git
 FISHERMAN := https://git.io/fisher
+STARFISH := https://starship.rs/install.sh 
 PYENV := https://github.com/pyenv/pyenv.git
 PYENV_UPDATE := git://github.com/pyenv/pyenv-update.git
 .PHONY: emacs vim fish bash git fonts pacaur tmux alacritty pandoc pyenv clean-*
@@ -107,14 +108,16 @@ fish: _common-shell
 	mkdir -p $(HOME)/.config/fish/functions
 	ln -fs $(DOTFILES)/fish/config.fish $(HOME)/.config/fish/config.fish
 	curl -Lo $(HOME)/.config/fish/functions/fisher.fish --create-dirs $(FISHERMAN)
-	ln -fs $(DOTFILES)/fish/fish_prompt.fish $(HOME)/.config/fish/functions/fish_prompt.fish
 	ln -fs $(DOTFILES)/fish/fishfile $(HOME)/.config/fish/fishfile
 	-mkdir -p $(HOME)/.local/bin
 	-fish -c fisher
+	sh -c "curl -fsSL $(STARFISH_CMD)"
+	ln -fs $(DOTFILES)/fish/starship.toml $(HOME)/.config/starship.toml
 
 clean-fish: _clean-shell
 	-rm $(HOME)/.config/fish/config.fish
 	-rm -rf $(HOME)/.config/fish/functions
+	-rm "$(which starship)"
 
 ########################################################
 ## Bash recipes

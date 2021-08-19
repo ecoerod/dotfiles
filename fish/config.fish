@@ -48,9 +48,6 @@ if test -n "$EMACS"
   set -x TERM eterm-color
 end
 
-# Async
-set -g async_prompt_functions _pure_prompt_git
-
 # WSL workaround: if on a Windows dir, use Windows git instead of WSL
 function is_win_dir
     switch $PWD
@@ -68,4 +65,7 @@ function git
         /usr/bin/git $argv
     end
 end
+
+# Init Starship
+starship init fish | source
 
