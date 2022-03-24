@@ -1,5 +1,9 @@
 test $TERM != "tmux-256color"; and exec tmux
 
+# Init Starship
+starship init fish | source
+
+
 # environment variables
 set -g -x CFLAGS "-O2"
 set -g -x MAKEFLAGS "-j"
@@ -7,10 +11,12 @@ set -g -x BROWSER chromium
 set -g -x EDITOR emacs -nw
 set -g -x VISUAL emacs -c
 set -g -x fish_greeting ""
-set -g -x PATH $PATH $HOME/.local/bin/ $HOME/.yarn/bin $HOME/.config/composer/vendor/bin $HOME/.rvm/bin
 set -g -x JAVA_HOME /usr/lib/jvm/default/
 set -g -x BAT_THEME Tomorrow-Night
 set -g -x GPG_TTY (tty)
+
+fish_add_path $HOME/.local/bin/ $HOME/.yarn/bin $HOME/.config/composer/vendor/bin
+fish_add_path -a $HOME/.rvm/bin
 
 # aliases
 # alias emacs  "emacs -nw"
@@ -27,12 +33,14 @@ function report
 end
 
 # Pyenv
-set -g -x PYENV_ROOT $HOME/.pyenv
-set -g -x PATH $PYENV_ROOT/bin $PATH
-status --is-interactive; and source (pyenv init - | psub)
+set PYENV_ROOT $HOME/.pyenv
+fish_add_path -P $PYENV_ROOT/shims $PYENV_ROOT/bin
+
+if command -v pyenv 1>/dev/null 2>&1
+    pyenv init - | source
+end
 
 # RVM
-rvm default
 
 # Base16 Shell
 if status --is-interactive
@@ -66,6 +74,4 @@ function git
     end
 end
 
-# Init Starship
-starship init fish | source
 
